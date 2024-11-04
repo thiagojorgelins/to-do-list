@@ -1,7 +1,3 @@
-Aqui está o README adaptado para a sua aplicação FastAPI com PostgreSQL:
-
----
-
 # Todo List API
 
 Este repositório contém a **Todo List API**, uma aplicação de gerenciamento de tarefas desenvolvida em **FastAPI** com um banco de dados **PostgreSQL**. A API inclui autenticação com JWT, rotas para criar, atualizar, listar e excluir usuários e tarefas.
