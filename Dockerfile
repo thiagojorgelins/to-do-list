@@ -19,4 +19,5 @@ COPY . .
 # Dar permissão de execução ao entrypoint
 RUN chmod +x entrypoint.sh
 
-CMD ["./entrypoint.sh"]
+# Define o entrypoint para o script
+ENTRYPOINT ["./entrypoint.sh"]
