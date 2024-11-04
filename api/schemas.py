@@ -1,6 +1,7 @@
 from pydantic import BaseModel, EmailStr
-from typing import Optional
+from typing import List, Optional
 from datetime import datetime
+from enum import Enum
 
 class UserBase(BaseModel):
     username: str
@@ -20,17 +21,7 @@ class User(UserBase):
     updated_at: Optional[datetime]
 
     class Config:
-        from_attributes = True
-
-from pydantic import BaseModel, EmailStr
-from typing import Optional
-from datetime import datetime
-from enum import Enum
-
-from pydantic import BaseModel, EmailStr
-from typing import Optional
-from datetime import datetime
-from enum import Enum
+        orm_mode = True
 
 class TaskStatus(str, Enum):
     PENDING = 'Pendente'
@@ -57,7 +48,7 @@ class Task(TaskBase):
     user_id: int
 
     class Config:
-        from_attributes = True
+        from_attribute = True 
 
 class Token(BaseModel):
     access_token: str
@@ -65,3 +56,13 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     username: Optional[str] = None
+
+class PaginatedTasks(BaseModel):
+    data: List[Task]
+    current_page: int
+    total_pages: int
+    next: Optional[str] = None
+    previous: Optional[str] = None
+
+    class Config:
+        from_attribute = True
